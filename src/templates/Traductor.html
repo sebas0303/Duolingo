@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .translator-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        textarea, select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .result-container.active {
+            opacity: 1;
+            max-height: 300px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        h3 {
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        #translatedText {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="translator-container">
+        <h2>Traductor</h2>
+        <div class="input-group">
+            <label for="sourceLanguage">Idioma de origen:</label>
+            <select id="sourceLanguage">
+                <!-- Agrega opciones según tus necesidades -->
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="targetLanguage">Idioma de destino:</label>
+            <select id="targetLanguage">
+                <!-- Agrega opciones según tus necesidades -->
+                <option value="en">Inglés</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="textToTranslate">Texto a traducir:</label>
+            <textarea id="textToTranslate" rows="4"></textarea>
+        </div>
+
+        <button onclick="translate()">Traducir</button>
+
+        <div class="result-container" id="resultContainer">
+            <h3>Texto Traducido:</h3>
+            <textarea id="translatedText" readonly rows="4"></textarea>
+        </div>
+    </div>
+
+    <script>
+        function translate() {
+            // Agrega aquí la lógica de tu traductor con el código que ya tienes
+            // Puedes obtener los valores de los elementos de la interfaz utilizando document.getElementById('elementId').value
+            // Luego, actualiza el contenido del área de texto traducido (translatedText)
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.classList.add('active');
+        }
+    </script>
+</body>
+</html>

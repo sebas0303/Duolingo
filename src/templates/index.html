@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Space Parallax Scrolling</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+</head>
+<body>
+
+<header>
+    <ul>
+        <li><a href="/regular/" class="active">Clic acá para ver contenido</a></li>
+    </ul>
+
+</header>
+
+<section>
+    <img src="{{ url_for ('static', filename='imagenes/stars.png') }}" id="stars">
+    <img src="{{ url_for ('static', filename='imagenes/moon.png') }}" id="moon">
+    <img src="{{ url_for ('static', filename='imagenes/mountains_behind.png') }}" id="mountains_behind">
+    <h2 id="text">Learn En</h2>
+    <a href="#sec" id="btn">Explore mas </a>
+    <img src="{{ url_for ('static', filename='imagenes/mountains_front.png') }}" id="mountains_front">
+</section>
+
+<div class="sec" id="sec">
+    <h2>Para que es LearnEn</h2>
+    <p>
+        ¡Bienvenidos al mundo digital, donde 3 estudiantes de Tecsup , que cursan el 2do ciclo de la
+         carrera Diseño y Desarrollo de Software , en el curso de base de datos hicieron una pagina 
+         de inglés sus nombres son , Dilan Gutiérrez, Jeremías Coronel y Sebastián Arquinigo, están 
+         haciendo algo emocionante! Se han unido para crear nada menos que LearnEn, una página web 
+         súper chévere que tiene un solo propósito: hacerte amar el inglés.<br><br>
+         No pienses en LearnEn como una página web aburrida, ¡no, no! Es una fiesta educativa donde 
+         la diversión y el aprendizaje se mezclan. Este grupo se centra en  hacer que el inglés sea 
+         accesible y entretenido para todos.<br><br>
+         Imagina una página que no solo te enseña gramática, sino que también se adapta a ti. Sí, 
+         así de genial es LearEn. Estos tres estudiantes están dándolo todo en la programación para
+        que tengas una experiencia única.
+        <br><br>
+        Entonces , usando conocimiento de este curso pudieron plasmar esa idea en una página web , 
+        funcional y conectada a la base de datos , no  una que se muestre en consola sino con interfaz
+         y todo.<br><br>
+    </p>
+</div>
+<!-- partial -->
+  <script  src="{{ url_for('static', filename='js/script2.js') }}"></script>
+
+</body>
+</html>

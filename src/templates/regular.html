@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>LearnEn</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Verbos_Re.css') }}">
+    <link rel='stylesheet' href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+    <script src="https://kit.fontawesome.com/3b161c540c.js" crossorigin="anonymous"></script>
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(325deg, #090247 0%, #2f03c0 20%, #38ecb6 70%, #fdeff9 100%);
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    border: 2px solid #000000; 
+}
+
+th, td {
+    border: 1px solid #000000; 
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+h2{
+    text-align: center;
+    color: #00bcd4;
+    background-color: #f2f2f2;
+}
+    </style>
+</head>
+<header>
+    <h1>
+        Regular and Irregular verbs
+    </h1>
+</header>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+          <i class='bx bx-book-open icon'></i>
+          <div class="logo_name">Learn English</div>
+          <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+          <li>
+            <a href="/traductor/"> 
+              <i class='bx bx-chat'></i>
+              <span class="links_name">Translator</span>
+            </a>
+            <span class="tooltip">Translator</span>
+          </li>
+          <li>
+            <a href="/regular/">
+              <i class='bx bx-time'></i>
+              <span class="links_name">Regular and Irregular Verbs</span>
+            </a>
+            <span class="tooltip">Regular and Irregular Verbs</span>
+          </li>
+          <li>
+            <a href="/comparatives/">
+              <i class='bx bx-time'></i>
+              <span class="links_name">Comparatives/Superlatives</span>
+            </a>
+            <span class="tooltip">Comparatives/Superlatives</span>
+          </li>
+          <li>
+            <a href="/past/">
+              <i class='bx bx-time'></i>
+              <span class="links_name">Verb tenses-past</span>
+            </a>
+            <span class="tooltip">Verb tenses-past</span>
+          </li>
+          <li>
+            <a href="/present/">
+              <i class='bx bx-time'></i>
+              <span class="links_name">Verb Tenses-Present</span>
+            </a>
+            <span class="tooltip">Verb Tenses-Present</span>
+          </li>
+          <li>
+            <a href="/future/">
+              <i class='bx bx-time'></i>
+              <span class="links_name">Verb Tenses-Future</span>
+            </a>
+            <span class="tooltip">Verb Tenses-Future</span>
+          </li>
+          <li>
+            <a href="/juego/" target="_blank">
+              <i class='bx bx-game'></i>
+              <span class="links_name">Game</span>
+            </a>
+            <span class="tooltip">Game</span>
+          </li>
+          
+        </ul>
+      </div>
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="column">
+                <h2 class="text-center">
+                    Irregular Verbs
+                </h2>
+                <hr>
+            </div>
+          </div>
+            
+          <h3>{{ dataTotal }}</h3>
+        <div class="row">
+            
+   
+        {% if (dataverbs) %}
+
+            <table>
+                <thead>
+                  <tr>
+                    <th>Infinitive</th>
+                    <th>Past</th>
+                    <th>Spanish</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for verb in dataverbs %}    
+                        <tr>
+                            <td>{{ verb.infinitive }}</td>
+                            <td>{{ verb.past }}</td>
+                            <td>{{ verb.spanish }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        {% else %}
+            <p style="text-align: center;">No hay más verbos 😭 </p>
+        {% endif %}
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="column">
+                <h2 class="text-center">
+                    Regular Verbs
+                </h2>
+                <hr>
+            </div>
+          </div>
+            
+          <h3>{{ dataTotal2 }}</h3>
+        <div class="row">
+            
+   
+        {% if (dataotra) %}
+
+            <table>
+                <thead>
+                  <tr>
+                    <th>Infinitive</th>
+                    <th>Past</th>
+                    <th>Spanish</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for verb1 in dataotra %}    
+                        <tr>
+                            <td>{{ verb1.infinitive }}</td>
+                            <td>{{ verb1.past }}</td>
+                            <td>{{ verb1.spanish }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        {% else %}
+            <p style="text-align: center;">No hay más verbos 😭 </p>
+        {% endif %}
+
+        </div>
+    </div>
+
+</body>
+</html>

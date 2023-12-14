@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Learn English</title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Verbos_Re.css') }}">
+  <style>
+    table {
+        width: 65%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-left: 290px;
+    }
+
+    th, td {
+        border: 2px solid #000000;
+        padding: 8px;
+        text-align: center;
+    }
+
+    /* Alinea el contenido de las celdas a la derecha */
+    td {
+        text-align: center;
+       
+    }
+
+    /* Otras reglas de estilo... */
+</style>
+  
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>FUTURE TENSES</h1>
+    </div>
+  </header>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-book-open icon'></i>
+      <div class="logo_name">Learn English</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="/traductor/"> 
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Translator</span>
+        </a>
+        <span class="tooltip">Translator</span>
+      </li>
+      <li>
+        <a href="">
+          <i class='bx bx-time'></i>
+          <span class="links_name">Regular and Irregular Verbs</span>
+        </a>
+        <span class="tooltip">Regular and Irregular Verbs</span>
+      </li>
+      <li>
+        <a href="/comparatives/">
+          <i class='bx bx-time'></i>
+          <span class="links_name">Comparatives/Superlatives</span>
+        </a>
+        <span class="tooltip">Comparatives/Superlatives</span>
+      </li>
+      <li>
+        <a href="/past/">
+          <i class='bx bx-time'></i>
+          <span class="links_name">Verb tenses-past</span>
+        </a>
+        <span class="tooltip">Verb tenses-past</span>
+      </li>
+      <li>
+        <a href="/present/">
+          <i class='bx bx-time'></i>
+          <span class="links_name">Verb Tenses-Present</span>
+        </a>
+        <span class="tooltip">Verb Tenses-Present</span>
+      </li>
+      <li>
+        <a href="/future/">
+          <i class='bx bx-time'></i>
+          <span class="links_name">Verb Tenses-Future</span>
+        </a>
+        <span class="tooltip">Verb Tenses-Future</span>
+      </li>
+      <li>
+        <a href="/juego/" target="_blank">
+          <i class='bx bx-game'></i>
+          <span class="links_name">Game</span>
+        </a>
+        <span class="tooltip">Game</span>
+      </li>
+      
+    </ul>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <div class="container">
+<br>
+    <div class="row">
+        <div class="column">
+            <h2 class="text-center">
+                Future Tenses
+            </h2>
+            <hr>
+        </div>
+      </div>
+        
+      <h3>{{ dataTotal }}</h3>
+    <div class="row">
+        
+
+    {% if (dataverbs3) %}
+
+        <table>
+            <thead>
+              <tr>
+                <th>Tense</th>
+                <th>Spanish</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for verb in dataverbs3 %}    
+                    <tr>
+                        <td>{{ verb.tense  }}</td>
+                        <td>{{ verb.spanish }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    {% else %}
+        <p style="text-align: center;">No hay más verbos 😭 </p>
+    {% endif %}
+
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+</div>
+
+</body>
+</html>
